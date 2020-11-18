@@ -64,7 +64,7 @@ module ForemanRhCloud
           end
         end
 
-        register_global_js_file 'subscriptions_extension'
+        register_global_js_file 'global'
 
         register_custom_status(InventorySync::InventoryStatus)
 

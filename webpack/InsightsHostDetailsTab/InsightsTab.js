@@ -8,7 +8,14 @@ import './InsightsTab.scss';
 class InsightsHostDetailsTab extends React.Component {
   componentDidMount() {
     const { fetchHits, hostID } = this.props;
-    fetchHits(hostID);
+    hostID && fetchHits(hostID);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { fetchHits, hostID } = this.props;
+    if (hostID && prevProps.hostID !== hostID) {
+      fetchHits(hostID);
+    }
   }
 
   render() {
@@ -26,6 +33,7 @@ class InsightsHostDetailsTab extends React.Component {
           results_url: resultsUrl,
           solution_url: solutionUrl,
         },
+
         index
       ) => (
         <ListItem
@@ -51,12 +59,13 @@ class InsightsHostDetailsTab extends React.Component {
 }
 
 InsightsHostDetailsTab.propTypes = {
-  hostID: PropTypes.number.isRequired,
+  hostID: PropTypes.number,
   fetchHits: PropTypes.func,
   hits: PropTypes.array,
 };
 
 InsightsHostDetailsTab.defaultProps = {
+  hostID: null,
   fetchHits: noop,
   hits: [],
 };
