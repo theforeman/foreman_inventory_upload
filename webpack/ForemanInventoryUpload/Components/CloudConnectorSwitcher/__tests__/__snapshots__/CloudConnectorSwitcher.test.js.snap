@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CloudConnectorSwitcher rendering render 1`] = `
+<ShortSwitcherPF4
+  id="cloud-connector-settings-switcher"
+  isChecked={false}
+  label="Cloud Connector"
+  onChange={[Function]}
+  tooltip={null}
+/>
+`;

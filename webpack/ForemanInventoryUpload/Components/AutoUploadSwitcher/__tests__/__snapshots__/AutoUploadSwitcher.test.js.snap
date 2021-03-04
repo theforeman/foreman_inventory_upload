@@ -7,7 +7,7 @@ exports[`AutoUploadSwitcher rendering render with props 1`] = `
   <SwitcherPF4
     id="auto-upload-setting-switcher"
     isChecked={true}
-    label="Auto upload"
+    label="Auto upload (enabled by default)"
     onChange={[Function]}
     tooltip="Enable automatic upload of your hosts inventory to the Red Hat cloud"
   />

@@ -7,9 +7,18 @@ exports[`InventorySettings rendering render without Props 1`] = `
   <h3>
     Settings
   </h3>
-  <Connect(AutoUploadSwitcher) />
-  <Connect(ExcludePackagesSwitcher) />
-  <Connect(HostObfuscationSwitcher) />
-  <Connect(IpsObfuscationSwitcher) />
+  <RedHatInventorySwitcher />
+  <CloudConnectorSwitcher />
+  <Button
+    isInline={true}
+    onClick={[Function]}
+    variant="link"
+  >
+    View advanced settings
+  </Button>
+  <AdvancedSettingsModal
+    isModalOpen={false}
+    setIsModalOpen={[Function]}
+  />
 </div>
 `;

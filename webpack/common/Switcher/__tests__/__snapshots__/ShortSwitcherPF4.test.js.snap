@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InsightsCloudSync helpers should return insights cloud Url 1`] = `
+<Grid
+  className="foreman-short-switcher"
+>
+  <GridItem
+    className="switcher-label"
+    span={9}
+  >
+    some-label
+    <HelpLabel
+      className="switcher-help-label"
+      id="some-id"
+      text="some-text"
+    />
+  </GridItem>
+  <GridItem
+    span={1}
+  />
+  <GridItem
+    span={2}
+  >
+    <Switch
+      aria-label=""
+      id="rh-cloud-switcher-some-id"
+      isChecked={true}
+      isDisabled={false}
+      onChange={[MockFunction]}
+    />
+  </GridItem>
+</Grid>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RedHatInventorySwitcher rendering render 1`] = `
+<ShortSwitcherPF4
+  id="rh-inventory-settings-switcher"
+  isChecked={false}
+  label="Red Hat Inventory"
+  onChange={[Function]}
+  tooltip={null}
+/>
+`;

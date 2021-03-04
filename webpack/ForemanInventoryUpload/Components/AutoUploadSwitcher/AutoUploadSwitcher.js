@@ -7,7 +7,7 @@ const AutoUploadSwitcher = ({ autoUploadEnabled, handleToggle }) => (
   <div className="auto_upload_switcher">
     <SwitcherPF4
       id="auto-upload-setting-switcher"
-      label={__('Auto upload')}
+      label={`${__('Auto upload')} ${__('(enabled by default)')}`}
       tooltip={__(
         'Enable automatic upload of your hosts inventory to the Red Hat cloud'
       )}
