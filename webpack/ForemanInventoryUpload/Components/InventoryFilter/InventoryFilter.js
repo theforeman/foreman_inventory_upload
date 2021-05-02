@@ -15,8 +15,7 @@ const InventoryFilter = ({
   organization,
 }) => {
   useEffect(() => {
-    const initialTerm =
-      organization === __(ANY_ORGANIZATION) ? '' : organization;
+    const initialTerm = organization === ANY_ORGANIZATION ? '' : organization;
     handleFilterChange(initialTerm);
   }, []);
 

@@ -41,7 +41,9 @@ const InventoryAutoUploadSwitcher = ({
 
           <Grid.Col sm={5}>
             <Popover
-              headerContent={<strong>Advanced Inventory Settings</strong>}
+              headerContent={
+                <strong>{__('Advanced Inventory Settings')}</strong>
+              }
               bodyContent={
                 <AdvancedSettings
                   autoUploadEnabled={autoUploadEnabled}

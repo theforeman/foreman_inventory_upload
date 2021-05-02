@@ -20,13 +20,13 @@ const Toast = ({ syncHosts, disconnectHosts }) => {
         <strong>{disconnectHosts}</strong>
       </p>
       <p>
-        For more info, please visit the{' '}
+        {__('For more info, please visit the')}{' '}
         <a
           href={foremanUrl('/hosts')}
           target="_blank"
           rel="noopener noreferrer"
         >
-          hosts page
+          {__('hosts page')}
         </a>
       </p>
     </span>

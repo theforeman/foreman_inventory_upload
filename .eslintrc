@@ -1,10 +1,11 @@
 {
-  "plugins": ["@theforeman/foreman", "spellcheck"],
+  "plugins": ["@theforeman/foreman", "spellcheck", "translation"],
   "extends": [
     "plugin:@theforeman/foreman/core",
     "plugin:@theforeman/foreman/plugins"
   ],
   "rules": {
+    "translation/no-strings-without-translations": "warn",
     "spellcheck/spell-checker": [
       "error",
       {

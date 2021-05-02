@@ -48,7 +48,7 @@ const SyncModal = ({ show, toggleModal }) => (
           )}
         </p>
         <Button bsStyle="primary" bsSize="lg" onClick={toggleModal}>
-          Close
+          {__('Close')}
         </Button>
       </Grid>
     </Modal.Body>
