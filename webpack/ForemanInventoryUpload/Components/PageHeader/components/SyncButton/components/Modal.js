@@ -1,3 +1,4 @@
+/* eslint-disable translation/no-strings-without-translations */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Modal, Grid, Button } from 'patternfly-react';

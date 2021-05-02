@@ -1,3 +1,4 @@
+/* eslint-disable translation/no-strings-without-translations */
 import React from 'react';
 import { Spinner } from '@patternfly/react-core';
 import { CheckIcon, TimesIcon } from '@patternfly/react-icons';
