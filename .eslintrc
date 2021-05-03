@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "plugins": ["@theforeman/foreman", "spellcheck", "translation"],
   "extends": [
     "plugin:@theforeman/foreman/core",
