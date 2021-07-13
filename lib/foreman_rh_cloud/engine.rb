@@ -6,6 +6,18 @@ module ForemanRhCloud
   class Engine < ::Rails::Engine
     engine_name 'foreman_rh_cloud'
 
+    def self.register_scheduled_task(task_class, cronline)
+      return if ForemanTasks::RecurringLogic.joins(:tasks)
+                .merge(ForemanTasks::Task.where(label: task_class.name))
+                .exists?
+
+      User.as_anonymous_admin do
+        recurring_logic = ForemanTasks::RecurringLogic.new_from_cronline(cronline)
+        recurring_logic.save!
+        recurring_logic.start(task_class)
+      end
+    end
+
     initializer 'foreman_rh_cloud.load_default_settings', :before => :load_config_initializers do
       require_dependency File.expand_path('../../app/models/setting/rh_cloud.rb', __dir__)
     end
@@ -138,15 +150,8 @@ module ForemanRhCloud
         # skip object creation when admin user is not present, for example in test DB
         if User.unscoped.find_by_login(User::ANONYMOUS_ADMIN).present?
           ::ForemanTasks.dynflow.config.on_init(false) do |world|
-            unless ForemanTasks::RecurringLogic.joins(:tasks).merge(
-              ForemanTasks::Task.where(label: 'InventorySync::Async::InventoryScheduledSync')
-            ).exists?
-              User.as_anonymous_admin do
-                recurring_logic = ForemanTasks::RecurringLogic.new_from_cronline("0 0 * * *")
-                recurring_logic.save!
-                recurring_logic.start(InventorySync::Async::InventoryScheduledSync)
-              end
-            end
+            ForemanRhCloud::Engine.register_scheduled_task(InventorySync::Async::InventoryScheduledSync, '0 0 * * *')
+            ForemanRhCloud::Engine.register_scheduled_task(InsightsCloud::Async::InsightsClientStatusAging, '0 0 * * *')
           end
         end
       end

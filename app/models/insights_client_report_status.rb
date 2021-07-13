@@ -6,6 +6,10 @@ class InsightsClientReportStatus < HostStatus::Status
   NOT_MANAGED           = 2 # host_registration_insights = false
   NOT_MANAGED_WITH_DATA = 3 # host_registration_insights = false & getting data
 
+  scope :stale, -> { where.not(reported_at: (Time.now - REPORT_INTERVAL)..Time.now) }
+  scope :reporting, -> { where(status: REPORTING) }
+  scope :not_managed_with_data, -> { where(status: NOT_MANAGED_WITH_DATA) }
+
   def self.status_name
     N_('Insights')
   end
