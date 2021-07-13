@@ -31,7 +31,7 @@ module InventorySync
       def query_inventory(page = 1)
         hosts_inventory_response = execute_cloud_request(
           method: :get,
-          url: ForemanInventoryUpload.inventory_export_url,
+          url: request_url,
           headers: {
             params: {
               per_page: 100,
@@ -45,6 +45,10 @@ module InventorySync
 
       def logger
         action_logger
+      end
+
+      def request_url
+        ForemanInventoryUpload.inventory_export_url
       end
     end
   end

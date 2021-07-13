@@ -243,6 +243,7 @@ class InventoryHostsSyncTest < ActiveSupport::TestCase
 
   test 'Inventory should sync UUID for existing Insights Facets' do
     InventorySync::Async::InventoryHostsSync.any_instance.expects(:query_inventory).returns(@inventory)
+    InventorySync::Async::InventoryHostsSync.any_instance.expects(:plan_self_host_sync)
 
     @host2.build_insights.save
 
@@ -255,6 +256,7 @@ class InventoryHostsSyncTest < ActiveSupport::TestCase
 
   test 'Inventory should sync UUID for new Insights Facets' do
     InventorySync::Async::InventoryHostsSync.any_instance.expects(:query_inventory).returns(@inventory)
+    InventorySync::Async::InventoryHostsSync.any_instance.expects(:plan_self_host_sync)
 
     ForemanTasks.sync_task(InventorySync::Async::InventoryHostsSync)
 

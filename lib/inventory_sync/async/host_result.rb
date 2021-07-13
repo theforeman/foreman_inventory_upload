@@ -1,6 +1,8 @@
 module InventorySync
   module Async
     class HostResult
+      attr_reader :uuid_by_fqdn
+
       def initialize(result)
         @total = result['total']
         @count = result['count']
@@ -8,6 +10,7 @@ module InventorySync
         @per_page = result['per_page']
         @sub_ids = result["results"].map { |host| host['subscription_manager_id'] }
         @uuid_by_sub_id = Hash[result["results"].map { |host| [host['subscription_manager_id'], host['id']] }]
+        @uuid_by_fqdn = Hash[result["results"].map { |host| [host['fqdn'].downcase, host['id']] }]
       end
 
       def status_hashes
