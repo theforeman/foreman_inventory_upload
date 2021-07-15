@@ -42,9 +42,9 @@ class CloudRequestForwarderTest < ActiveSupport::TestCase
   test 'should prepare correct cloud url' do
     paths = {
       "/redhat_access/r/insights/platform/module-update-router/v1/channel?module=insights-core" => "https://cert.cloud.redhat.com/api/module-update-router/v1/channel?module=insights-core",
-      "/redhat_access/r/insights/v1/static/release/insights-core.egg" => "https://cloud.redhat.com/api/v1/static/release/insights-core.egg",
-      "/redhat_access/r/insights/v1/static/uploader.v2.json" => "https://cloud.redhat.com/api/v1/static/uploader.v2.json",
-      "/redhat_access/r/insights/v1/static/uploader.v2.json.asc" => "https://cloud.redhat.com/api/v1/static/uploader.v2.json.asc",
+      "/redhat_access/r/insights/v1/static/release/insights-core.egg" => "https://cert-api.access.redhat.com/r/insights/v1/static/release/insights-core.egg",
+      "/redhat_access/r/insights/v1/static/uploader.v2.json" => "https://cert-api.access.redhat.com/r/insights/v1/static/uploader.v2.json",
+      "/redhat_access/r/insights/v1/static/uploader.v2.json.asc" => "https://cert-api.access.redhat.com/r/insights/v1/static/uploader.v2.json.asc",
       "/redhat_access/r/insights/platform/inventory/v1/hosts" => "https://cert.cloud.redhat.com/api/inventory/v1/hosts",
       "/redhat_access/r/insights/platform/ingress/v1/upload" => "https://cert.cloud.redhat.com/api/ingress/v1/upload",
       "/redhat_access/r/insights/uploads/67200803-132b-474b-a6f9-37be74185df4" => "https://cert-api.access.redhat.com/r/insights/uploads/67200803-132b-474b-a6f9-37be74185df4",

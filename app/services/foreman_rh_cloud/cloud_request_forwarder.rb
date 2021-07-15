@@ -56,10 +56,6 @@ module ForemanRhCloud
 
     def path_params(request_path, certs)
       case request_path
-      when metadata_request?
-        {
-          url: ForemanRhCloud.base_url + request_path.sub('/redhat_access/r/insights', '/api'),
-        }
       when platform_request?
         {
           url: ForemanRhCloud.cert_base_url + request_path.sub('/redhat_access/r/insights/platform', '/api'),
@@ -74,10 +70,6 @@ module ForemanRhCloud
           ssl_ca_file: Class.new.include(RedhatAccess::Telemetry::LookUps).new.get_default_ssl_ca_file,
         }
       end
-    end
-
-    def metadata_request?
-      ->(request_path) { request_path.include? '/static' }
     end
 
     def platform_request?
