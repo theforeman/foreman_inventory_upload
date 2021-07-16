@@ -28,7 +28,7 @@ export const PageDescription = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        About subscription watch
+        {__('About subscription watch')}
       </a>
     </p>
     <p>

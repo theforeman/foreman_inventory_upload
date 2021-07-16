@@ -1,3 +1,4 @@
+/* eslint-disable translation/no-strings-without-translations */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Modal, Grid, Button } from 'patternfly-react';
@@ -48,7 +49,7 @@ const SyncModal = ({ show, toggleModal }) => (
           )}
         </p>
         <Button bsStyle="primary" bsSize="lg" onClick={toggleModal}>
-          Close
+          {__('Close')}
         </Button>
       </Grid>
     </Modal.Body>

@@ -17,7 +17,7 @@ class InsightsSyncSwitcher extends Component {
 
     return (
       <div className="insights_sync_switcher">
-        <span>Synchronize Automatically</span>
+        <span>{__('Synchronize Automatically')}</span>
         <FieldLevelHelp
           content={__(
             'Enable automatic synchronization of Insights recommendations from the Red Hat cloud'

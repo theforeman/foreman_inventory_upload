@@ -15,7 +15,8 @@ exports[`FileDownload rendering render without Props 1`] = `
     disabled={false}
     onClick={[Function]}
   >
-    Download Report 
+    Download Report
+     
     <Icon
       name="download"
       type="fa"

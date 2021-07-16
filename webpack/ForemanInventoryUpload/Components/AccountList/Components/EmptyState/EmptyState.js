@@ -9,7 +9,7 @@ const inventoryEmptyState = () => (
     <EmptyState.Title>
       {__('Fetching data about your accounts')}
     </EmptyState.Title>
-    <EmptyState.Info>{__('Loading')}...</EmptyState.Info>
+    <EmptyState.Info>{__('Loading...')}</EmptyState.Info>
   </EmptyState>
 );
 
