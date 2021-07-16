@@ -27,6 +27,7 @@ module ForemanInventoryUpload
               'insights_client::obfuscate_ip_enabled',
               'insights_client::hostname',
               'insights_client::ips',
+              'insights_id',
             ]).pluck(:name, :id)
           ]
       end

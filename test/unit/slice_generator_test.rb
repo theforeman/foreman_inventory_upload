@@ -53,6 +53,7 @@ class SliceGeneratorTest < ActiveSupport::TestCase
       'insights_client::hostname',
       'insights_client::obfuscate_ip_enabled',
       'insights_client::ips',
+      'insights_id',
     ]
   end
 
@@ -655,6 +656,20 @@ class SliceGeneratorTest < ActiveSupport::TestCase
     assert_equal '00000000-0000-0000-0000-000000000000', actual['report_slice_id']
     assert_not_nil(actual_host = actual['hosts'].first)
     assert_not_nil actual_host['bios_uuid']
+  end
+
+  test 'passes valid insights_id field' do
+    FactoryBot.create(:fact_value, fact_name: fact_names['insights_id'], value: 'D30B0B42-7824-2635-C62D-491394DE43F7', host: @host)
+
+    batch = Host.where(id: @host.id).in_batches.first
+    generator = create_generator(batch)
+
+    json_str = generator.render
+    actual = JSON.parse(json_str.join("\n"))
+
+    assert_equal '00000000-0000-0000-0000-000000000000', actual['report_slice_id']
+    assert_not_nil(actual_host = actual['hosts'].first)
+    assert_not_nil actual_host['insights_id']
   end
 
   private
